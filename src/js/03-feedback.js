@@ -13,8 +13,7 @@ function elemFormsInput (event) {
 
 function outputMessage() {
   const savedMessage = localStorage.getItem('feedbackFormState');
-  if (savedMessage) {
-    // console.log(savedMessage);
+  if (savedMessage) {    
     form.value = savedMessage;
     console.log(form.value)
     const parsedSettings = JSON.parse(savedMessage);
