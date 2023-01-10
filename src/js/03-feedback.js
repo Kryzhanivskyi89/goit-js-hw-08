@@ -12,12 +12,12 @@ function elemFormsInput (event) {
 };
 
 function outputMessage() {
-  const savedMessage = localStorage.getItem('feedbackFormState');
+  const savedMessage = JSON.parse(localStorage.getItem('feedbackFormState'));
   if (savedMessage) {    
     form.value = savedMessage;
-    console.log(form.value)
-    const parsedSettings = JSON.parse(savedMessage);
-    console.log(parsedSettings);
+    const { email, message } = form.elements;
+    email.value = savedMessage.email || '';
+    message.value = savedMessage.message || '';    
   };  
 };
 outputMessage();
