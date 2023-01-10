@@ -1,9 +1,9 @@
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form');
-const feedbackFormState  =  {};
+const feedbackFormState = JSON.parse(localStorage.getItem('feedbackFormState')) || {};
 
-form.addEventListener('input', throttle (elemFormsInput, 500));
+form.addEventListener('input', throttle(elemFormsInput, 500));
 
 function elemFormsInput (event) {  
   feedbackFormState[event.target.name] = event.target.value;
